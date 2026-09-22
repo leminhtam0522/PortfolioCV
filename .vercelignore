@@ -1,0 +1,4 @@
+Image/
+*.DNG
+*.log
+server.mjs
