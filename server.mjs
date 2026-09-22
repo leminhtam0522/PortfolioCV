@@ -25,7 +25,7 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   let reqUrl = decodeURIComponent(req.url.split('?')[0]);
   if (reqUrl === '/' || reqUrl === '') {
-    reqUrl = '/Le_Minh_Tam_Portfolio_Antigravity_Template.html';
+    reqUrl = fs.existsSync(path.join(__dirname, 'index.html')) ? '/index.html' : '/Le_Minh_Tam_Portfolio_Antigravity_Template.html';
   }
 
   const filePath = path.join(__dirname, reqUrl);
