@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0A1020"/>
+<title>Le Minh Tam / 黎明心 — International Business Portfolio</title>
+<meta name="description" content="Le Minh Tam / 黎明心 — International Business, Taiwan × Vietnam, research, data, AI and cross-border operations."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#09101e;
+  --navy2:#101b31;
+  --ice:#f3f8fc;
+  --white:#ffffff;
+  --ink:#111827;
+  --muted:#667085;
+  --sky:#6bdcff;
+  --blue:#5b7cff;
+  --violet:#8667ff;
+  --peach:#ffb77d;
+  --line:rgba(107,220,255,.38);
+  --shadow:0 28px 80px rgba(5,13,30,.22);
+  --r:36px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  background:var(--navy);
+}
+@media (min-width: 769px){
+  html{
+    scroll-snap-type: y proximity;
+    scroll-padding-top: clamp(60px, 8.5vh, 85px);
+  }
+}
+body{
+  font-family:'Kanit',system-ui,-apple-system,Segoe UI,sans-serif;
+  color:#eaf2f8;background:var(--navy);overflow-x:clip;
+}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--sky);color:var(--navy)}
+.wrap{width:min(1420px,calc(100% - 42px));margin:auto}
+.kicker{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--sky)}
+.h-title{font-size:clamp(2.4rem,4.8vw,4.8rem);line-height:.86;letter-spacing:-.05em;text-transform:uppercase;font-weight:900}
+.gradient-text{background:linear-gradient(180deg,#f9fdff 4%,#9cc8e3 55%,#5f7489 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.light-title{color:#0c1725}
+.smallcopy{color:#a9b8c8;line-height:1.55;font-weight:300}
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px rgba(255,255,255,.08),var(--shadow);backdrop-filter:blur(16px)}
+.edge{
+  position:relative;
+}
+.edge:before{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;
+  background:linear-gradient(120deg,rgba(107,220,255,.95),rgba(134,103,255,.15) 35%,rgba(255,183,125,.75));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.2,.75,.2,1),transform .85s cubic-bezier(.2,.75,.2,1)}
+.reveal.on{opacity:1;transform:none}
+.cursor-glow{position:fixed;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(91,124,255,.13),rgba(107,220,255,.045) 42%,transparent 72%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;mix-blend-mode:screen}
+.progress{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--sky),var(--blue),var(--peach));z-index:1000}
+
+/* NAV */
+.nav{
+  position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:100;
+  width:min(1120px,calc(100% - 30px));padding:11px 16px 11px 20px;border-radius:999px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(9,16,30,.67);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(20px);
+}
+.nav-brand{font-weight:700;letter-spacing:.05em}
+.nav-links{display:flex;gap:1.35rem;font-size:.76rem;text-transform:uppercase;letter-spacing:.13em;color:#b9c8d5}
+.nav a:hover{color:#fff}
+.nav-pill{background:#eafaff;color:#0b1626;padding:.66rem 1rem;border-radius:999px;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.09em}
+
+/* HERO */
+.hero{
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  position:relative;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(68px,9vh,90px) 0 clamp(16px,2.5vh,28px);overflow:hidden;
+  scroll-snap-align:start;box-sizing:border-box;
+  background:
+    radial-gradient(circle at 76% 24%,rgba(107,220,255,.16),transparent 26%),
+    radial-gradient(circle at 18% 72%,rgba(134,103,255,.13),transparent 24%),
+    linear-gradient(180deg,#08101d,#0d1728 64%,#101b2d);
+}
+.hero-grid{
+  position:absolute;inset:0;opacity:.16;pointer-events:none;
+  background-image:linear-gradient(rgba(107,220,255,.17) 1px,transparent 1px),linear-gradient(90deg,rgba(107,220,255,.17) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,black,transparent 78%);
+}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(1px);box-shadow:0 0 80px currentColor;opacity:.4;animation:float 7s ease-in-out infinite}
+.hero-orb.a{width:110px;height:110px;background:#6bdcff;color:#6bdcff;right:8%;top:16%}
+.hero-orb.b{width:58px;height:58px;background:#ffb77d;color:#ffb77d;left:11%;top:24%;animation-delay:-3s}
+@keyframes float{50%{transform:translate3d(0,-18px,28px)}}
+.hero-inner{
+  position:relative;z-index:2;width:min(1480px,calc(100% - 38px));margin:auto;
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2.2vh,24px);
+}
+.hero-top{display:grid;grid-template-columns:1.22fr .78fr;gap:clamp(20px,2.8vw,36px);align-items:end}
+.hero-heading{position:relative;z-index:3}
+.hero-heading .hi{font-size:clamp(.95rem,1.4vw,1.4rem);font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:#dbe8f1;margin-bottom:clamp(6px,1vh,10px)}
+.hero-heading h1{font-size:clamp(3.6rem,7.8vw,8.8rem);font-weight:900;line-height:.8;letter-spacing:-.055em;text-transform:uppercase;white-space:nowrap}
+.hero-heading h1 span{display:inline}
+.hero-heading h1 span:last-child{margin-left:0}
+.hero-one-line{white-space:nowrap!important}
+.hero-card{
+  height:clamp(320px,52vh,560px);max-height:56vh;border-radius:clamp(28px,3.2vw,44px);
+  overflow:hidden;transform-style:preserve-3d;box-shadow:0 50px 120px rgba(0,0,0,.5);position:relative;
+}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(6,12,24,.78));pointer-events:none}
+.hero-card img{object-position:center 38%}
+.hero-meta{
+  position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:20px
+}
+.hero-meta strong{font-size:1.05rem}
+.hero-meta p{font-size:.78rem;color:#dce9f2;text-transform:uppercase;letter-spacing:.11em;text-align:right}
+.hero-bottom{display:grid;grid-template-columns:1fr auto;gap:clamp(16px,2.5vw,30px);margin-top:0;align-items:end}
+.hero-desc{max-width:680px;font-size:clamp(.92rem,1.25vw,1.25rem);line-height:1.45;font-weight:300;color:#d3dfe8}
+.scroll-cue{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.15em;font-size:.7rem;color:#8ca1b4}
+.scroll-line{width:70px;height:1px;background:linear-gradient(90deg,var(--sky),transparent)}
+
+/* MARQUEE */
+.marquee{padding:clamp(20px,3vh,36px) 0;background:#0d1728;overflow:hidden}
+.track{display:flex;gap:14px;width:max-content;animation:move 42s linear infinite;margin-bottom:14px}
+.track.rev{animation-direction:reverse;animation-duration:48s}
+.mtile{width:clamp(200px,24vh,280px);height:clamp(125px,15vh,175px);border-radius:clamp(18px,2vw,26px);overflow:hidden;flex:none;position:relative;border:1px solid rgba(255,255,255,.12);box-shadow:0 14px 40px rgba(0,0,0,.2)}
+.mtile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 56%,rgba(5,10,18,.78))}
+.mtile span{position:absolute;bottom:14px;left:16px;z-index:2;font-size:.76rem;text-transform:uppercase;letter-spacing:.1em}
+@keyframes move{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}
+
+/* JOURNEY LIGHT */
+.journey{
+  background:linear-gradient(180deg,#f8fbfd,#edf6fb);color:var(--ink);
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(20px,2.8vh,32px);
+  border-radius:clamp(36px,4vw,56px) clamp(36px,4vw,56px) 0 0;
+  position:relative;z-index:4;scroll-snap-align:start;box-sizing:border-box;
+}
+.journey-head{display:grid;grid-template-columns:1fr .85fr;gap:clamp(20px,3vw,45px);align-items:end;margin-bottom:clamp(16px,2.4vh,30px)}
+.journey-head p{font-size:clamp(.88rem,1.15vw,1.15rem);line-height:1.55;color:#566374;max-width:610px}
+.school-grid{display:grid;grid-template-columns:.85fr 1.15fr 1fr;gap:clamp(12px,1.5vw,18px);perspective:1200px;align-items:stretch}
+.school-card{
+  border-radius:clamp(20px,2vw,32px);overflow:hidden;background:white;
+  box-shadow:0 22px 70px rgba(20,53,80,.12);
+  height:clamp(200px,36vh,360px);min-height:unset;position:relative;transform-style:preserve-3d;
+}
+.school-card.tall{height:clamp(220px,40vh,400px);min-height:unset}
+.school-card .cap{position:absolute;left:18px;bottom:17px;background:rgba(255,255,255,.86);color:#102030;padding:.72rem .9rem;border-radius:16px;backdrop-filter:blur(16px);font-size:.77rem;letter-spacing:.08em;text-transform:uppercase}
+.school-card img{transition:transform .8s cubic-bezier(.2,.75,.2,1)}
+.school-card:hover img{transform:scale(1.035)}
+.journey-line{margin-top:clamp(14px,2vh,26px);display:flex;gap:clamp(8px,1vw,12px);flex-wrap:wrap}
+.journey-chip{border:1px solid #c9d9e4;color:#314354;padding:clamp(.42rem,.7vh,.6rem) clamp(.65rem,1vw,.84rem);border-radius:999px;font-size:clamp(.7rem,.85vw,.76rem);text-transform:uppercase;letter-spacing:.09em}
+
+/* TAIWAN GALLERY */
+.life{
+  background:#111c2d;
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(20px,2.8vh,32px);
+  position:relative;scroll-snap-align:start;box-sizing:border-box;
+}
+.life-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);align-items:end;margin-bottom:clamp(16px,2.4vh,30px)}
+.life-head p{max-width:560px;font-size:clamp(.88rem,1.15vw,1.08rem);line-height:1.55}
+.bento{display:grid;grid-template-columns:1.15fr .85fr 1fr;grid-template-rows:clamp(110px,21vh,200px) clamp(100px,18vh,170px);gap:clamp(10px,1.4vw,16px);perspective:1400px}
+.bento figure{border-radius:clamp(18px,2vw,28px);overflow:hidden;position:relative;box-shadow:0 28px 70px rgba(0,0,0,.28);transform-style:preserve-3d}
+.bento figure:nth-child(1){grid-row:span 2}
+.bento figure:nth-child(4){grid-column:span 2}
+.bento figcaption{position:absolute;left:14px;bottom:14px;background:rgba(8,15,27,.72);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(14px);padding:.58rem .72rem;border-radius:14px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* CAPABILITIES LIGHT */
+.capabilities{
+  background:#fff;color:#111827;
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(20px,2.8vh,32px);
+  scroll-snap-align:start;box-sizing:border-box;
+}
+.cap-head{display:grid;grid-template-columns:1fr .8fr;gap:clamp(20px,3vw,40px);align-items:end;margin-bottom:clamp(16px,2.4vh,30px)}
+.cap-head p{color:#667085;font-size:clamp(.88rem,1.1vw,1.06rem);line-height:1.55}
+.cap-list{border-top:1px solid #d9e0e8}
+.cap-row{display:grid;grid-template-columns:clamp(65px,6vw,110px) clamp(160px,18vw,250px) 1fr;gap:clamp(14px,2vw,24px);padding:clamp(10px,1.5vh,18px) 0;border-bottom:1px solid #d9e0e8;align-items:center}
+.cap-num{font-size:clamp(2.2rem,3.8vw,4.4rem);font-weight:900;line-height:.78;color:#b7c9d7}
+.cap-name{font-size:clamp(1rem,1.35vw,1.45rem);font-weight:600;text-transform:uppercase}
+.cap-desc{color:#667085;line-height:1.5;font-size:clamp(.84rem,1.05vw,.98rem);max-width:700px}
+.tools{margin-top:clamp(14px,2vh,26px);display:flex;flex-wrap:wrap;gap:clamp(6px,0.8vw,9px)}
+.tool{border:1px solid #cfd9e3;border-radius:999px;padding:clamp(.38rem,.6vh,.52rem) clamp(.62rem,.9vw,.82rem);font-size:clamp(.7rem,.85vw,.76rem);letter-spacing:.05em}
+
+/* EXPERIENCE STACK */
+.experience{
+  background:#0b1423;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(40px,5vh,60px);
+  position:relative;box-sizing:border-box;
+}
+.stack-wrap{margin-top:clamp(16px,2.5vh,32px)}
+.exp-card{
+  position:sticky;top:clamp(68px,9vh,86px);
+  margin-bottom:clamp(60px,10vh,100px);
+  border-radius:clamp(24px,3vw,42px);
+  padding:clamp(16px,2vh,24px) clamp(18px,2.2vw,28px);
+  background:linear-gradient(145deg,#101f35,#0a1321);
+  border:1px solid rgba(107,220,255,.22);
+  box-shadow:0 30px 90px rgba(0,0,0,.35);
+  transform-style:preserve-3d;
+  scroll-snap-align:start;box-sizing:border-box;
+}
+.exp-card:nth-child(2){top:clamp(80px,10.5vh,100px);margin-bottom:clamp(30px,5vh,50px)}
+.exp-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:clamp(10px,1.4vh,18px)}
+.exp-num{font-size:clamp(2.6rem,4.8vw,5.2rem);font-weight:900;line-height:.7;color:#42536a}
+.exp-title{text-align:right}
+.exp-title h3{font-size:clamp(1.4rem,2.4vw,2.6rem);text-transform:uppercase;line-height:.9}
+.exp-title p{color:#8fa4b7;font-size:clamp(.76rem,.95vw,.92rem);margin-top:.3rem}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,16px)}
+.exp-grid .two{display:grid;grid-template-rows:1fr 1fr;gap:clamp(10px,1.4vw,16px)}
+.exp-photo{border-radius:clamp(18px,2vw,28px);overflow:hidden;position:relative}
+.exp-photo.big{height:clamp(180px,29vh,320px);min-height:unset}
+.exp-photo span{position:absolute;left:14px;bottom:12px;padding:.48rem .65rem;border-radius:12px;background:rgba(7,13,23,.72);backdrop-filter:blur(14px);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
+.exp-tags{display:flex;flex-wrap:wrap;gap:clamp(6px,0.8vw,8px);margin-top:clamp(10px,1.4vh,16px)}
+.exp-tag{border:1px solid rgba(255,255,255,.13);border-radius:999px;padding:clamp(.38rem,.55vh,.48rem) clamp(.55rem,.8vw,.72rem);font-size:clamp(.68rem,.8vw,.72rem);text-transform:uppercase;letter-spacing:.08em}
+
+/* RESEARCH LIGHT */
+.research{
+  background:linear-gradient(180deg,#f8fbfd,#eef6fb);color:#111827;
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(20px,2.8vh,32px);
+  border-radius:clamp(36px,4vw,56px) clamp(36px,4vw,56px) 0 0;
+  scroll-snap-align:start;box-sizing:border-box;
+}
+.research-head{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(20px,3vw,45px);align-items:end}
+.research-head p{font-size:clamp(.88rem,1.1vw,1.06rem);line-height:1.55;color:#657184}
+.research-mid{display:flex;align-items:center;gap:clamp(16px,2.5vw,36px);margin:clamp(10px,1.6vh,20px) 0 clamp(12px,1.8vh,22px)}
+.metric-big{display:flex;align-items:end;gap:clamp(8px,1.2vw,14px);margin:0;flex:none}
+.metric-big b{font-size:clamp(3.2rem,5.5vw,5.8rem);line-height:.7;letter-spacing:-.05em;color:#0f1d2c}
+.metric-big span{font-size:clamp(.74rem,.9vw,.88rem);color:#667085;text-transform:uppercase;letter-spacing:.12em;padding-bottom:.25rem}
+.process{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(6px,0.8vw,9px);margin-bottom:0;flex:1}
+.pstep{padding:clamp(8px,1vh,12px) clamp(8px,1vw,12px);border-radius:clamp(12px,1.2vw,18px);border:1px solid #cad9e4;background:#fff;font-size:clamp(.66rem,.78vw,.72rem);text-transform:uppercase;letter-spacing:.06em;min-height:clamp(48px,6.5vh,68px);display:flex;align-items:end}
+.research-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.2vw,16px);perspective:1400px}
+.r-card{background:white;border:1px solid #d4e0e9;border-radius:clamp(18px,2vw,26px);padding:clamp(8px,1vh,12px);box-shadow:0 22px 70px rgba(21,52,78,.12);transform-style:preserve-3d}
+.r-card img{object-fit:contain!important;background:#fff;border-radius:clamp(12px,1.4vw,18px);height:clamp(120px,20vh,210px);width:100%}
+.r-label{display:flex;justify-content:space-between;gap:8px;padding:clamp(6px,0.8vh,10px) 2px 2px;color:#687586;font-size:clamp(.66rem,.76vw,.72rem);text-transform:uppercase;letter-spacing:.07em}
+.open-btn{cursor:pointer;color:#315acb;font-weight:600}
+
+/* KYOTO */
+.kyoto{
+  background:linear-gradient(135deg,#0e1930,#142849 60%,#173653);
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(20px,2.8vh,32px);
+  position:relative;overflow:hidden;scroll-snap-align:start;box-sizing:border-box;
+}
+.kyoto:before{content:"";position:absolute;width:680px;height:680px;border-radius:50%;right:-250px;top:-240px;background:radial-gradient(circle,rgba(107,220,255,.25),transparent 68%)}
+.kyoto-head{display:grid;grid-template-columns:1fr .9fr;gap:clamp(20px,3vw,40px);align-items:end;margin-bottom:clamp(14px,2.2vh,26px);position:relative}
+.kyoto-head p{font-size:clamp(.88rem,1.1vw,1.06rem);color:#aabccb;line-height:1.55}
+.kyoto-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(10px,1.4vw,16px);perspective:1400px;position:relative;align-items:stretch}
+.kyoto-hero{height:clamp(200px,38vh,380px);min-height:unset;border-radius:clamp(20px,2.4vw,36px);overflow:hidden}
+.kyoto-side{display:grid;grid-template-rows:1fr 1fr 1fr;gap:clamp(8px,1.2vh,12px);height:clamp(200px,38vh,380px)}
+.kyoto-side figure{border-radius:clamp(14px,1.6vw,22px);overflow:hidden;min-height:unset}
+.kyoto-facts{display:flex;gap:clamp(6px,0.8vw,9px);flex-wrap:wrap;margin-top:clamp(12px,1.8vh,22px)}
+.kfact{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.055);padding:clamp(.38rem,.6vh,.52rem) clamp(.6rem,.9vw,.75rem);border-radius:999px;font-size:clamp(.68rem,.8vw,.74rem);letter-spacing:.07em;text-transform:uppercase}
+
+/* NEXT STEP */
+.next{
+  background:#fff;color:#111827;
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(20px,2.8vh,32px);
+  scroll-snap-align:start;box-sizing:border-box;
+}
+.next-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,3.8vw,55px);align-items:center}
+.next-copy h2{font-size:clamp(2.6rem,5.8vw,6.2rem);line-height:.86;text-transform:uppercase;letter-spacing:-.05em}
+.next-copy p{color:#687586;line-height:1.55;margin-top:clamp(12px,1.8vh,22px);max-width:570px;font-size:clamp(.88rem,1.15vw,1.06rem)}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,14px)}
+.fit-card{border:1px solid #d3dce5;border-radius:clamp(20px,2.2vw,28px);padding:clamp(16px,2vh,24px);min-height:unset;position:relative;overflow:hidden}
+.fit-card:after{content:"";position:absolute;width:160px;height:160px;border-radius:50%;right:-70px;top:-70px;background:radial-gradient(circle,#dff7ff,transparent 70%)}
+.fit-card h3{text-transform:uppercase;font-size:clamp(.84rem,1.05vw,.96rem);letter-spacing:.08em;margin-bottom:clamp(10px,1.4vh,16px)}
+.fit-card ul{list-style:none;display:grid;gap:clamp(6px,1vh,10px);color:#697586;font-size:clamp(.78rem,.92vw,.86rem);line-height:1.45}
+.fit-card li:before{content:"→";color:#3769ff;margin-right:8px}
+
+/* CONTACT */
+.contact{
+  background:linear-gradient(135deg,#f8fbfd,#eaf4fb);color:#0d1725;
+  padding:clamp(65px,8.5vh,85px) 0 clamp(16px,2.5vh,26px);
+  min-height:100vh;min-height:100svh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;scroll-snap-align:start;box-sizing:border-box;
+}
+.contact-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,3.8vw,56px);align-items:center}
+.contact-photo{height:clamp(260px,48vh,480px);max-height:52vh;border-radius:clamp(26px,3.2vw,44px);overflow:hidden;box-shadow:0 35px 100px rgba(24,58,89,.22);position:relative}
+.contact-photo:before{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.55);border-radius:clamp(18px,2.4vw,32px);z-index:2;pointer-events:none}
+.contact-info h2{font-size:clamp(2.8rem,6.2vw,6.6rem);line-height:.8;letter-spacing:-.055em;text-transform:uppercase}
+.contact-name{font-size:clamp(1.05rem,1.4vw,1.3rem);font-weight:600;margin-top:clamp(14px,2vh,26px)}
+.contact-meta{display:grid;gap:clamp(4px,0.7vh,8px);margin-top:clamp(10px,1.4vh,14px);color:#667085;font-size:clamp(.78rem,.95vw,.88rem)}
+.contact-links{display:flex;gap:clamp(8px,1vw,10px);flex-wrap:wrap;margin-top:clamp(14px,2vh,24px)}
+.contact-btn{border:1px solid #bdccd8;border-radius:999px;padding:clamp(.55rem,.8vh,.72rem) clamp(.82rem,1.2vw,1rem);background:#fff;font-size:clamp(.72rem,.85vw,.78rem);text-transform:uppercase;letter-spacing:.07em}
+.contact-btn:hover{border-color:#5b7cff;transform:translateY(-2px)}
+footer{background:transparent;color:#617081;padding:clamp(12px,1.8vh,20px) 0 0;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;text-align:center}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(4,8,14,.92);display:none;align-items:center;justify-content:center;padding:30px;z-index:1200;backdrop-filter:blur(18px)}
+.lightbox.open{display:flex}
+.lightbox img{max-width:94vw;max-height:90vh;width:auto;height:auto;object-fit:contain;border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.lightbox button{position:absolute;right:24px;top:20px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.07);color:#fff;font-size:1.4rem;cursor:pointer}
+
+/* responsive */
+@media(max-width:980px){
+ .nav-links{display:none}
+ .hero-top,.journey-head,.life-head,.cap-head,.research-head,.kyoto-head,.next-grid,.contact-grid{grid-template-columns:1fr}
+ .hero-heading h1 span:last-child{margin-left:0}
+ .hero-card{height:52vh;max-height:none}
+ .hero-bottom{grid-template-columns:1fr}
+ .school-grid{grid-template-columns:1fr 1fr}
+ .school-card:first-child{grid-column:span 2}
+ .bento{grid-template-columns:1fr 1fr;grid-template-rows:260px 220px 220px}
+ .bento figure:nth-child(1){grid-row:span 1}
+ .bento figure:nth-child(4){grid-column:span 1}
+ .cap-row{grid-template-columns:80px 1fr}
+ .cap-desc{grid-column:2}
+ .exp-grid,.kyoto-grid{grid-template-columns:1fr}
+ .exp-photo.big{height:360px}
+ .research-mid{flex-direction:column;align-items:flex-start;gap:14px}
+ .research-mid .metric-big{margin-bottom:4px}
+ .research-mid .process{width:100%;grid-template-columns:repeat(3,1fr)}
+ .research-grid{grid-template-columns:repeat(2,1fr)}
+ .kyoto-side{grid-template-columns:repeat(3,1fr);grid-template-rows:none;height:auto}
+ .kyoto-side figure{min-height:160px}
+ .fit-grid{grid-template-columns:1fr}
+ .contact-photo{height:48vh;max-height:none}
+}
+@media(max-width:768px){
+ html{scroll-snap-type:none;scroll-padding-top:0}
+ .hero,.journey,.life,.capabilities,.experience,.exp-card,.research,.kyoto,.next,.contact{
+   min-height:auto!important;height:auto!important;scroll-snap-align:none!important;
+ }
+ .hero{padding-top:96px}
+ .journey,.capabilities,.research,.next{padding:72px 0}
+ .life,.experience,.kyoto,.contact{padding:72px 0 80px}
+ .exp-card{position:relative;top:auto!important;margin-bottom:28px}
+}
+@media(max-width:640px){
+ .wrap{width:min(100% - 26px,1420px)}
+ .nav{top:10px}
+ .hero{padding-top:90px}
+ .hero-heading h1{font-size:15.5vw}
+ .hero-card{border-radius:34px}
+ .mtile{width:220px;height:145px}
+ .journey,.capabilities,.research,.next{padding:80px 0}
+ .life,.experience,.kyoto{padding:80px 0 90px}
+ .school-grid{grid-template-columns:1fr}
+ .school-card:first-child{grid-column:auto}
+ .school-card,.school-card.tall{height:340px}
+ .bento{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+ .bento figure{min-width:82vw;height:380px;scroll-snap-align:center}
+ .cap-row{grid-template-columns:64px 1fr}
+ .cap-num{font-size:3.5rem}
+ .exp-card{padding:16px;border-radius:34px}
+ .exp-grid .two{grid-template-rows:none;grid-template-columns:1fr}
+ .exp-photo,.exp-photo.big{height:280px}
+ .research-mid .process{grid-template-columns:repeat(2,1fr)}
+ .research-grid{grid-template-columns:1fr}
+ .kyoto-hero{height:380px}
+ .kyoto-side{grid-template-columns:1fr 1fr}
+ .contact-info h2{font-size:18vw}
+ .cursor-glow{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .reveal{opacity:1;transform:none}
+}
+
+/* ANTIGRAVITY IMAGE SLOT MODE
+   Each image element below contains data-source="ORIGINAL FILE NAME".
+   Antigravity should replace the empty src with the correct imported image path.
+   Do not change layout, crop logic, animation, or section structure unless asked.
+*/
+.asset-slot{
+  position:relative;
+  background:
+    linear-gradient(135deg,rgba(107,220,255,.08),rgba(134,103,255,.08)),
+    repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0 10px,transparent 10px 20px);
+}
+.asset-slot::before{
+  content:attr(data-label);
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:1.2rem;color:#8ea2b5;font-size:.72rem;letter-spacing:.09em;
+  text-transform:uppercase;z-index:0;pointer-events:none;
+}
+.asset-slot img{position:relative;z-index:1}
+.asset-slot img:not([src]), .asset-slot img[src=""]{visibility:hidden}
+.asset-slot:has(img[src]:not([src=""]))::before{display:none}
+.mtile img[src$=".png"]{object-fit:contain;background:#fff}
+
+</style>
+</head>
+<body>
+
+<!--
+ANTIGRAVITY ASSET MAPPING INSTRUCTIONS
+
+IMPORTANT:
+1. Keep ALL existing HTML/CSS/JS layout, animation, typography and section structure unchanged.
+2. Import the user's image folder into this project.
+3. For every <img> with data-source="FILE NAME", locate that exact original file and set src to its local web path.
+4. Preserve the original image aspect ratio. Never stretch images.
+5. Lifestyle / portrait photos may use the existing object-fit: cover.
+6. Research screenshots (Excel.png, SPSS.png, SmartPLS.png, Smart PLS.png) MUST use object-fit: contain and remain readable.
+7. DNG files (Conferences.DNG, Certificate.DNG, ICEIA.DNG) must be converted to JPG/WebP for browser use, but the visual content must not be altered.
+8. Do NOT generate, regenerate, beautify, retouch, stylize, or AI-edit any user photo.
+9. Contact photo.JPG is reserved ONLY for the final Contact section.
+10. Hero heading must remain exactly: Hi, I'm Paul — on one single line.
+11. Contact details:
+    Email: paul.le.global02@gmail.com
+    Phone: 0958655504
+
+EXPECTED ASSET MAP:
+Hero.JPG -> Hero section
+Class Tour.jpg / Tour.jpg / Class.JPG -> Taipei Tour experience
+Banco.JPG -> Banco experience
+International friend.JPG / Friends.JPG / Classmates.JPG / Class project.JPG -> Taiwan / cross-cultural gallery
+TDTU.jpg / School portrait.jpg / Portrait.JPG / LHU.jpg -> education journey
+Excel.png / SPSS.png / SmartPLS.png / Smart PLS.png -> research section
+Conferences.DNG / Certificate.DNG / Kyoto.jpg / ICEIA.DNG -> Kyoto conference section
+Contact photo.JPG -> final Contact section ONLY
+-->
+
+<div class="progress" id="progress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav class="nav">
+  <a href="#home" class="nav-brand">LMT / 黎明心</a>
+  <div class="nav-links">
+    <a href="#journey">Journey</a>
+    <a href="#life">Taiwan</a>
+    <a href="#research">Research</a>
+    <a href="#kyoto">Kyoto</a>
+  </div>
+  <a class="nav-pill" href="#contact">Contact</a>
+</nav>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-orb a"></div><div class="hero-orb b"></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="hero-heading reveal">
+        <div class="hi">Vietnam → Taiwan · International Business</div>
+        <h1 class="gradient-text hero-one-line">Hi, I'm Paul</h1>
+      </div>
+      <div class="hero-card edge tilt reveal asset-slot" data-label="Hero.JPG" data-tilt data-strength="7">
+        <img src="Image/Hero.JPG" data-source="Hero.JPG" alt="Le Minh Tam in Taiwan"/>
+        <div class="hero-meta">
+          <strong>Le Minh Tam / 黎明心</strong>
+          <p>MBA Candidate<br/>Taipei, Taiwan</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom reveal">
+      <p class="hero-desc">Building a career around cross-border business, research, data and the practical connection between Taiwan and Vietnam.</p>
+      <div class="scroll-cue"><span>Scroll to explore</span><i class="scroll-line"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE MARQUEE -->
+<section class="marquee" aria-label="Visual portfolio">
+  <div class="track">
+    <div class="mtile asset-slot" data-label="Class Tour.jpg"><img src="Image/Class Tour.jpg" data-source="Class Tour.jpg"><span>Class Experience</span></div>
+    <div class="mtile asset-slot" data-label="International friend.JPG"><img src="Image/International friend.JPG" data-source="International friend.JPG"><span>Cross-cultural</span></div>
+    <div class="mtile asset-slot" data-label="Banco.JPG"><img src="Image/Banco.JPG" data-source="Banco.JPG"><span>Banco Operations</span></div>
+    <div class="mtile asset-slot" data-label="Class project.JPG"><img src="Image/Class project.JPG" data-source="Class project.JPG"><span>Academic Project</span></div>
+    <div class="mtile asset-slot" data-label="Tour.jpg"><img src="Image/Tour.jpg" data-source="Tour.jpg"><span>Taipei Tour</span></div>
+    <div class="mtile asset-slot" data-label="Friends.JPG"><img src="Image/Friends.JPG" data-source="Friends.JPG"><span>Classroom Life</span></div>
+    <div class="mtile asset-slot" data-label="School portrait.jpg"><img src="Image/School portrait.jpg" data-source="School portrait.jpg"><span>LHU</span></div>
+    <div class="mtile asset-slot" data-label="Kyoto.jpg"><img src="Image/Kyoto.jpg" data-source="Kyoto.jpg"><span>ICIEA Kyoto</span></div>
+    <div class="mtile asset-slot" data-label="Class Tour.jpg"><img src="Image/Class Tour.jpg" data-source="Class Tour.jpg"><span>Class Experience</span></div>
+    <div class="mtile asset-slot" data-label="International friend.JPG"><img src="Image/International friend.JPG" data-source="International friend.JPG"><span>Cross-cultural</span></div>
+    <div class="mtile asset-slot" data-label="Banco.JPG"><img src="Image/Banco.JPG" data-source="Banco.JPG"><span>Banco Operations</span></div>
+    <div class="mtile asset-slot" data-label="Class project.JPG"><img src="Image/Class project.JPG" data-source="Class project.JPG"><span>Academic Project</span></div>
+    <div class="mtile asset-slot" data-label="Tour.jpg"><img src="Image/Tour.jpg" data-source="Tour.jpg"><span>Taipei Tour</span></div>
+    <div class="mtile asset-slot" data-label="Friends.JPG"><img src="Image/Friends.JPG" data-source="Friends.JPG"><span>Classroom Life</span></div>
+    <div class="mtile asset-slot" data-label="School portrait.jpg"><img src="Image/School portrait.jpg" data-source="School portrait.jpg"><span>LHU</span></div>
+    <div class="mtile asset-slot" data-label="Kyoto.jpg"><img src="Image/Kyoto.jpg" data-source="Kyoto.jpg"><span>ICIEA Kyoto</span></div>
+  </div>
+  <div class="track rev">
+    <div class="mtile asset-slot" data-label="Portrait.JPG"><img src="Image/Portrait.JPG" data-source="Portrait.JPG"><span>Graduation</span></div>
+    <div class="mtile asset-slot" data-label="Class.JPG"><img src="Image/Class.JPG" data-source="Class.JPG"><span>Taiwan</span></div>
+    <div class="mtile asset-slot" data-label="Classmates.JPG"><img src="Image/Classmates.JPG" data-source="Classmates.JPG"><span>Classmates</span></div>
+    <div class="mtile asset-slot" data-label="Excel.png"><img src="Image/Excel.png" data-source="Excel.png"><span>Excel Data</span></div>
+    <div class="mtile asset-slot" data-label="SmartPLS.png"><img src="Image/SmartPLS.png" data-source="SmartPLS.png"><span>SmartPLS</span></div>
+    <div class="mtile asset-slot" data-label="SPSS.png"><img src="Image/SPSS.png" data-source="SPSS.png"><span>SPSS</span></div>
+    <div class="mtile asset-slot" data-label="LHU.jpg"><img src="Image/LHU.jpg" data-source="LHU.jpg"><span>LHU Campus</span></div>
+    <div class="mtile asset-slot" data-label="Portrait.JPG"><img src="Image/Portrait.JPG" data-source="Portrait.JPG"><span>Graduation</span></div>
+    <div class="mtile asset-slot" data-label="Class.JPG"><img src="Image/Class.JPG" data-source="Class.JPG"><span>Taiwan</span></div>
+    <div class="mtile asset-slot" data-label="Classmates.JPG"><img src="Image/Classmates.JPG" data-source="Classmates.JPG"><span>Classmates</span></div>
+    <div class="mtile asset-slot" data-label="Excel.png"><img src="Image/Excel.png" data-source="Excel.png"><span>Excel Data</span></div>
+    <div class="mtile asset-slot" data-label="SmartPLS.png"><img src="Image/SmartPLS.png" data-source="SmartPLS.png"><span>SmartPLS</span></div>
+    <div class="mtile asset-slot" data-label="SPSS.png"><img src="Image/SPSS.png" data-source="SPSS.png"><span>SPSS</span></div>
+    <div class="mtile asset-slot" data-label="LHU.jpg"><img src="Image/LHU.jpg" data-source="LHU.jpg"><span>LHU Campus</span></div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="journey" id="journey">
+ <div class="wrap">
+  <div class="journey-head reveal">
+    <div><div class="kicker" style="color:#3b67d9">01 · Journey</div><h2 class="h-title light-title">Vietnam<br/>to Taiwan</h2></div>
+    <p>Three years of International Business in Ho Chi Minh City led to a final undergraduate year at LHU in Taiwan. What began as an academic pathway became a longer journey into Mandarin, management and a multicultural life.</p>
+  </div>
+  <div class="school-grid">
+    <figure class="school-card tilt reveal asset-slot" data-tilt data-strength="4" data-label="LHU.jpg"><img src="Image/LHU.jpg" data-source="LHU.jpg" alt="Lunghwa University"><div class="cap">LHU · Campus</div></figure>
+    <figure class="school-card tall tilt reveal asset-slot" data-tilt data-strength="5" data-label="School portrait.jpg"><img src="Image/School portrait.jpg" data-source="School portrait.jpg" alt="Graduation at Lunghwa University"><div class="cap">LHU · Undergraduate completion</div></figure>
+    <figure class="school-card tilt reveal asset-slot" data-tilt data-strength="4" data-label="Portrait.JPG"><img src="Image/Portrait.JPG" data-source="Portrait.JPG" alt="Le Minh Tam at LHU"><div class="cap">Taiwan · Continue to MBA</div></figure>
+  </div>
+  <div class="journey-line reveal">
+    <span class="journey-chip">English-taught undergraduate year</span>
+    <span class="journey-chip">Mandarin development</span>
+    <span class="journey-chip">Bilingual MBA environment</span>
+    <span class="journey-chip">Independent learning</span>
+  </div>
+ </div>
+</section>
+
+<!-- LIFE -->
+<section class="life" id="life">
+ <div class="wrap">
+  <div class="life-head reveal">
+    <div><div class="kicker">02 · Beyond the classroom</div><h2 class="h-title gradient-text">Taiwan<br/>Experience</h2></div>
+    <p class="smallcopy">The strongest lessons did not come from one classroom. They came from group projects, international friendships, customer-facing work and learning how to adapt to people with very different backgrounds.</p>
+  </div>
+  <div class="bento">
+    <figure class="tilt reveal asset-slot" data-tilt data-label="Classmates.JPG"><img src="Image/Classmates.JPG" data-source="Classmates.JPG" alt="Classmates"><figcaption>Class community</figcaption></figure>
+    <figure class="tilt reveal asset-slot" data-tilt data-label="Class project.JPG"><img src="Image/Class project.JPG" data-source="Class project.JPG" alt="Class project"><figcaption>Academic teamwork</figcaption></figure>
+    <figure class="tilt reveal asset-slot" data-tilt data-label="Friends.JPG"><img src="Image/Friends.JPG" data-source="Friends.JPG" alt="Friends and professor"><figcaption>Learning with people</figcaption></figure>
+    <figure class="tilt reveal asset-slot" data-tilt data-label="Class.JPG"><img src="Image/Class.JPG" data-source="Class.JPG" alt="Class tour"><figcaption>Exploring Taiwan together</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities">
+ <div class="wrap">
+  <div class="cap-head reveal">
+    <div><div class="kicker" style="color:#3b67d9">03 · Capabilities</div><h2 class="h-title light-title">How I<br/>Work</h2></div>
+    <p>I do not define myself by a long list of software. The value is in how I collect information, structure a problem, verify results, communicate clearly and keep moving toward the next practical step.</p>
+  </div>
+  <div class="cap-list">
+    <div class="cap-row reveal"><div class="cap-num">01</div><div class="cap-name">Adaptability</div><div class="cap-desc">Vietnam → Taiwan, English academic environment → Mandarin and bilingual study. I learned to adjust quickly without losing structure.</div></div>
+    <div class="cap-row reveal"><div class="cap-num">02</div><div class="cap-name">Ownership</div><div class="cap-desc">I am comfortable taking a task from information collection to analysis, verification, presentation and follow-up.</div></div>
+    <div class="cap-row reveal"><div class="cap-num">03</div><div class="cap-name">Cross-cultural Communication</div><div class="cap-desc">Studying and working with people from different countries trained me to listen first, clarify expectations and communicate across contexts.</div></div>
+    <div class="cap-row reveal"><div class="cap-num">04</div><div class="cap-name">Data & AI Workflow</div><div class="cap-desc">I use data tools and AI to reduce noise, organize information and support decisions — while keeping human verification in the loop.</div></div>
+  </div>
+  <div class="tools reveal">
+    <span class="tool">Excel</span><span class="tool">Power Query</span><span class="tool">SPSS</span><span class="tool">SmartPLS</span><span class="tool">Power BI</span><span class="tool">Google Workspace</span><span class="tool">ChatGPT</span><span class="tool">Claude</span><span class="tool">Gemini</span><span class="tool">NotebookLM</span><span class="tool">Canva</span>
+  </div>
+ </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+ <div class="wrap">
+  <div class="reveal"><div class="kicker">04 · Real experience</div><h2 class="h-title gradient-text">Plan.<br/>Operate.</h2></div>
+  <div class="stack-wrap">
+    <article class="exp-card edge">
+      <div class="exp-top">
+        <div class="exp-num">01</div>
+        <div class="exp-title"><h3>Taipei Tour Project</h3><p>Plan · price · persuade · deliver</p></div>
+      </div>
+      <div class="exp-grid">
+        <figure class="exp-photo big tilt asset-slot" data-tilt data-label="Class Tour.jpg"><img src="Image/Class Tour.jpg" data-source="Class Tour.jpg" alt="Taipei class tour"><span>Class tour</span></figure>
+        <figure class="exp-photo big tilt asset-slot" data-tilt data-label="Tour.jpg"><img src="Image/Tour.jpg" data-source="Tour.jpg" alt="Tour group"><span>Group participation</span></figure>
+      </div>
+      <div class="exp-tags"><span class="exp-tag">5-person team</span><span class="exp-tag">40 classmates</span><span class="exp-tag">Itinerary & pricing</span><span class="exp-tag">Small team profit</span></div>
+    </article>
+
+    <article class="exp-card edge">
+      <div class="exp-top">
+        <div class="exp-num">02</div>
+        <div class="exp-title"><h3>Banco Part-time</h3><p>Customer-facing operations under pressure</p></div>
+      </div>
+      <div class="exp-grid">
+        <figure class="exp-photo big tilt asset-slot" data-tilt data-label="Banco.JPG"><img src="Image/Banco.JPG" data-source="Banco.JPG" alt="Banco workplace"><span>Restaurant operations</span></figure>
+        <figure class="exp-photo big tilt asset-slot" data-tilt data-label="International friend.JPG"><img src="Image/International friend.JPG" data-source="International friend.JPG" alt="International group"><span>Communication across cultures</span></figure>
+      </div>
+      <div class="exp-tags"><span class="exp-tag">Kitchen</span><span class="exp-tag">Customer service</span><span class="exp-tag">Front desk</span><span class="exp-tag">Inventory</span><span class="exp-tag">Chinese–English support</span></div>
+    </article>
+  </div>
+ </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="research" id="research">
+ <div class="wrap">
+  <div class="research-head reveal">
+    <div><div class="kicker" style="color:#3b67d9">05 · Independent research</div><h2 class="h-title light-title">From Data<br/>to Evidence</h2></div>
+    <p>Green Strategy Implementation in the F&B Industry — an independent project built over more than half a year, from questionnaire design and data collection to statistical analysis, model testing and final reporting.</p>
+  </div>
+
+  <div class="research-mid reveal">
+    <div class="metric-big"><b>468</b><span>Total respondents</span></div>
+    <div class="process">
+      <div class="pstep">01 · Topic</div><div class="pstep">02 · Questionnaire</div><div class="pstep">03 · Data collection</div><div class="pstep">04 · Cleaning</div><div class="pstep">05 · Analysis</div><div class="pstep">06 · Model & interpretation</div>
+    </div>
+  </div>
+
+  <div class="research-grid">
+    <div class="r-card tilt reveal asset-slot" data-tilt data-strength="3" data-label="Excel.png">
+      <img class="zoomable" src="Image/Excel.png" data-source="Excel.png" alt="Excel research dataset">
+      <div class="r-label"><span>Excel · Consolidated data</span><span class="open-btn">Open ↗</span></div>
+    </div>
+    <div class="r-card tilt reveal asset-slot" data-tilt data-strength="3" data-label="SPSS.png">
+      <img class="zoomable" src="Image/SPSS.png" data-source="SPSS.png" alt="SPSS output">
+      <div class="r-label"><span>SPSS · Statistical analysis</span><span class="open-btn">Open ↗</span></div>
+    </div>
+    <div class="r-card tilt reveal asset-slot" data-tilt data-strength="3" data-label="SmartPLS.png">
+      <img class="zoomable" src="Image/SmartPLS.png" data-source="SmartPLS.png" alt="SmartPLS structural model">
+      <div class="r-label"><span>SmartPLS · Customer model</span><span class="open-btn">Open ↗</span></div>
+    </div>
+    <div class="r-card tilt reveal asset-slot" data-tilt data-strength="2" data-label="Smart PLS.png">
+      <img class="zoomable" src="Image/Smart PLS.png" data-source="Smart PLS.png" alt="SmartPLS results">
+      <div class="r-label"><span>SmartPLS · Bootstrapping / path distributions</span><span class="open-btn">Open ↗</span></div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- KYOTO -->
+<section class="kyoto" id="kyoto">
+ <div class="wrap">
+  <div class="kyoto-head reveal">
+    <div><div class="kicker">06 · International exposure</div><h2 class="h-title gradient-text">Research<br/>to Kyoto</h2></div>
+    <p>The research later became an opportunity to present internationally at ICIEA 2026. The real value was preparation, an English presentation, responding to questions and learning how research should connect to practical implications.</p>
+  </div>
+
+  <div class="kyoto-grid">
+    <figure class="kyoto-hero tilt reveal edge asset-slot" data-label="Conferences.DNG" data-tilt data-strength="4"><img src="Image/Conferences.jpg" data-source="Conferences.DNG" alt="ICIEA conference photo"></figure>
+    <div class="kyoto-side">
+      <figure class="tilt reveal asset-slot" data-tilt data-label="Certificate.DNG"><img src="Image/Certificate.jpg" data-source="Certificate.DNG" alt="Conference certificate"></figure>
+      <figure class="tilt reveal asset-slot" data-tilt data-label="Kyoto.jpg"><img src="Image/Kyoto.jpg" data-source="Kyoto.jpg" alt="Kyoto conference group"></figure>
+      <figure class="tilt reveal asset-slot" data-tilt data-label="ICEIA.DNG"><img src="Image/ICEIA.jpg" data-source="ICEIA.DNG" alt="ICIEA room view"></figure>
+    </div>
+  </div>
+  <div class="kyoto-facts reveal"><span class="kfact">Kyoto, Japan</span><span class="kfact">~25-minute English presentation</span><span class="kfact">International Q&A</span><span class="kfact">Preparation & feedback</span></div>
+ </div>
+</section>
+
+<!-- NEXT -->
+<section class="next">
+ <div class="wrap next-grid">
+  <div class="next-copy reveal">
+    <div class="kicker" style="color:#3b67d9">07 · The next step</div>
+    <h2>Why this<br/>role?</h2>
+    <p>Long Advance brings together the parts of my background that already make sense — Vietnam, Taiwan, international business, languages, research and AI — with the practical supply-chain experience I still want to build.</p>
+  </div>
+  <div class="fit-grid">
+    <article class="fit-card reveal"><h3>What I can bring now</h3><ul><li>Vietnam market perspective</li><li>Vietnamese / English / Mandarin communication</li><li>Market & information research</li><li>AI-assisted reporting and presentation</li><li>Potential Taiwan–Vietnam coordination</li></ul></article>
+    <article class="fit-card reveal"><h3>What I want to learn</h3><ul><li>Practical import-export operations</li><li>Factory & supplier communication</li><li>Production and delivery coordination</li><li>Functional-textile knowledge</li><li>B2B customer development</li></ul></article>
+  </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+ <div class="wrap contact-grid">
+   <figure class="contact-photo tilt reveal edge asset-slot" data-label="Contact photo.JPG" data-tilt data-strength="4"><img src="Image/Contact photo.JPG" data-source="Contact photo.JPG" alt="Le Minh Tam contact portrait"></figure>
+   <div class="contact-info reveal">
+     <div class="kicker" style="color:#3b67d9">08 · Contact</div>
+     <h2>Let's<br/>Connect</h2>
+     <div class="contact-name">Le Minh Tam / 黎明心</div>
+     <div class="contact-meta">
+       <span>MBA Candidate · Lunghwa University of Science and Technology</span>
+       <span>International Business · Ton Duc Thang University</span>
+       <span>Vietnamese · English · Mandarin</span>
+       <span>Taiwan × Vietnam · International Business & Supply Chain</span>
+     </div>
+     <div class="contact-links">
+       <a class="contact-btn" href="mailto:paul.le.global02@gmail.com">Email</a>
+       <a class="contact-btn" href="tel:0958655504">Phone</a>
+       <a class="contact-btn" href="#" aria-label="LinkedIn" data-contact-placeholder="Replace with LinkedIn URL later">LinkedIn</a>
+     </div>
+   </div>
+ </div>
+ <footer><div class="wrap">Le Minh Tam / 黎明心 · Personal portfolio · 2026</div></footer>
+</section>
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button id="closeLightbox" aria-label="Close">×</button>
+  <img id="lightboxImg" alt="Expanded research evidence">
+</div>
+
+<script>
+const $=(s,sc=document)=>sc.querySelector(s);
+const $$=(s,sc=document)=>[...sc.querySelectorAll(s)];
+
+/* scroll progress */
+const progress=$("#progress");
+addEventListener("scroll",()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=((scrollY/h)*100)+"%";
+},{passive:true});
+
+/* cursor light */
+const glow=$("#cursorGlow");
+addEventListener("pointermove",e=>{
+  glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";
+},{passive:true});
+
+/* reveal */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target)}})
+},{threshold:.12});
+$$(".reveal").forEach(el=>obs.observe(el));
+
+/* 3D tilt */
+$$("[data-tilt]").forEach(card=>{
+  const strength=Number(card.dataset.strength||5);
+  card.addEventListener("pointermove",e=>{
+    if(matchMedia("(pointer:coarse)").matches)return;
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(1100px) rotateX(${-y*strength}deg) rotateY(${x*strength}deg) translateZ(6px)`;
+  });
+  card.addEventListener("pointerleave",()=>{
+    card.style.transform="perspective(1100px) rotateX(0) rotateY(0) translateZ(0)";
+  });
+});
+
+/* lightbox for research */
+const lb=$("#lightbox"), lbImg=$("#lightboxImg");
+$$(".zoomable").forEach(img=>{
+  img.style.cursor="zoom-in";
+  img.addEventListener("click",()=>{
+    lbImg.src=img.src;lb.classList.add("open");lb.setAttribute("aria-hidden","false");
+  });
+});
+function closeLB(){lb.classList.remove("open");lb.setAttribute("aria-hidden","true")}
+$("#closeLightbox").addEventListener("click",closeLB);
+lb.addEventListener("click",e=>{if(e.target===lb)closeLB()});
+addEventListener("keydown",e=>{if(e.key==="Escape")closeLB()});
+
+/* subtle hero parallax */
+const hero=$(".hero-card");
+addEventListener("scroll",()=>{
+  if(!hero || matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const y=Math.min(scrollY*.055,28);
+  hero.style.setProperty("--scrollY",y+"px");
+},{passive:true});
+</script>
+</body>
+</html>
